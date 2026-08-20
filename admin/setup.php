@@ -93,9 +93,11 @@ try {
     // Testimonials Table
     $pdo->exec("CREATE TABLE IF NOT EXISTS testimonials (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        content TEXT NOT NULL,
-        author_name VARCHAR(100) NOT NULL,
-        author_position VARCHAR(150),
+        client_name VARCHAR(100) NOT NULL,
+        company VARCHAR(150),
+        message TEXT NOT NULL,
+        photo VARCHAR(255),
+        rating INT DEFAULT 5,
         sort_order INT DEFAULT 0,
         is_active TINYINT(1) DEFAULT 1,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -173,10 +175,10 @@ try {
     ");
 
     // Sample Testimonials
-    $pdo->exec("INSERT INTO testimonials (content, author_name, author_position, sort_order) VALUES
-        ('SONNE service is very pleasant. Product education is detailed, information is transparent, and their price is competitive for above-average product specifications.', 'Ms. M', 'anggota direksi Perusahaan FMCG', 1),
-        ('Saya sangat mementingkan estetika produk dan tim SONNE sangat senang dengan hal tersebut. Mereka menunjukan pada saya berbagai opsi warna.', 'Mrs. S', 'direktur dari startup dekakorn', 2),
-        ('Saya sangat senang dengan tim operasional SONNE. Mereka membantu berdiskusi kesulitan-kesulitan konstruksi sipil.', 'Mr. H', 'CEO perusahaan import', 3)
+    $pdo->exec("INSERT INTO testimonials (client_name, company, message, rating, sort_order) VALUES
+        ('Ms. M', 'Perusahaan FMCG', 'SONNE service is very pleasant. Product education is detailed, information is transparent, and their price is competitive for above-average product specifications.', 5, 1),
+        ('Mrs. S', 'Startup Dekakorn', 'Saya sangat mementingkan estetika produk dan tim SONNE sangat senang dengan hal tersebut. Mereka menunjukan pada saya berbagai opsi warna.', 5, 2),
+        ('Mr. H', 'Perusahaan Import', 'Saya sangat senang dengan tim operasional SONNE. Mereka membantu berdiskusi kesulitan-kesulitan konstruksi sipil.', 5, 3)
     ");
 
     // Create uploads directory
