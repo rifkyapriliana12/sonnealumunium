@@ -90,8 +90,9 @@ try {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )");
 
-    // Testimonials Table
-    $pdo->exec("CREATE TABLE IF NOT EXISTS testimonials (
+    // Testimonials Table (drop old schema if exists)
+    $pdo->exec("DROP TABLE IF EXISTS testimonials");
+    $pdo->exec("CREATE TABLE testimonials (
         id INT AUTO_INCREMENT PRIMARY KEY,
         client_name VARCHAR(100) NOT NULL,
         company VARCHAR(150),
