@@ -24,14 +24,14 @@
                 </div>
                 <nav class="main-nav" id="mainNav">
                     <ul>
-                        <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#">Product</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Education</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Showroom</a></li>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#products">Product</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#projects">Portfolio</a></li>
+                        <li><a href="#why">Education</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#partners">Showroom</a></li>
                     </ul>
                 </nav>
                 <div class="header-right">
@@ -45,7 +45,7 @@
         </div>
     </header>
 
-    <section class="hero-slider">
+    <section class="hero-slider" id="home">
         <div class="slider-container">
             <?php foreach ($sliders as $index => $slider): ?>
                 <div class="slide <?php echo $index == 0 ? 'active' : ''; ?>" style="background-image: linear-gradient(90deg,rgba(0,0,0,<?php echo $slider['overlay_opacity']; ?>) 5%,rgba(0,0,0,0.1) 35%), url('uploads/sliders/<?php echo $slider['image']; ?>')">
@@ -75,7 +75,7 @@
         </div>
     </section>
 
-    <section class="products-showcase">
+    <section class="products-showcase" id="products">
         <div class="container">
             <?php foreach ($products as $index => $product): ?>
                 <div class="product-row <?php echo $index % 2 == 1 ? 'reverse' : ''; ?>">
@@ -93,7 +93,7 @@
         </div>
     </section>
 
-    <section class="why-section">
+    <section class="why-section" id="why">
         <div class="container">
             <h2 class="section-title center">WHY CHOSE SONNE?</h2>
             <div class="title-line center"></div>
@@ -169,7 +169,7 @@
         </div>
     </section>
 
-    <section class="projects-section">
+    <section class="projects-section" id="projects">
         <div class="container">
             <h2 class="section-title center">GLOBAL PROJECT CASES</h2>
             <div class="title-line center"></div>
@@ -185,7 +185,7 @@
         </div>
     </section>
 
-    <section class="partners-section">
+    <section class="partners-section" id="partners">
         <div class="container">
             <h2 class="section-title center">MEET OUR GLOBAL PARTNERS</h2>
             <div class="title-line center"></div>
@@ -201,7 +201,7 @@
         </div>
     </section>
 
-    <section class="blog-section">
+    <section class="blog-section" id="blog">
         <div class="container">
             <h2 class="section-title center">OUR LATEST BLOG</h2>
             <div class="title-line center"></div>
@@ -220,7 +220,7 @@
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section" id="contact">
         <div class="container">
             <h2>CONTACT US AND SHARE YOUR DRAWING</h2>
             <div class="cta-buttons">
