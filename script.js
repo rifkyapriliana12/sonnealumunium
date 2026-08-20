@@ -93,6 +93,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Dynamic Mega Menu — 3 Column Hover
+    const megaCatItems = document.querySelectorAll('.mega-cat-list li');
+    const megaSubLists = document.querySelectorAll('.mega-sub-list');
+
+    megaCatItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const cat = item.getAttribute('data-category');
+            megaCatItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            megaSubLists.forEach(list => {
+                list.classList.toggle('active', list.getAttribute('data-for') === cat);
+            });
+        });
+    });
+
     // Product Tabs
     const tabBtns = document.querySelectorAll('.tab-btn');
     

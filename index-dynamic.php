@@ -28,17 +28,49 @@
                         <li class="has-mega-menu">
                             <a href="#products">Product <i class="fas fa-chevron-down"></i></a>
                             <div class="mega-menu">
-                                <div class="mega-menu-col mega-menu-col-left">
-                                    <ul class="mega-menu-list">
-                                        <li><a href="/products">All Product</a></li>
-                                        <li><a href="/products/door">Door</a></li>
-                                        <li><a href="/products/window">Window</a></li>
-                                        <li><a href="/products/garages">Garages</a></li>
-                                        <li><a href="/products/shower">Shower</a></li>
-                                        <li><a href="/products/canopy-railing">Canopy &amp; Railing</a></li>
+                                <div class="mega-col mega-col-1">
+                                    <ul class="mega-cat-list">
+                                        <li data-category="all" class="active"><a href="#products">All Product</a></li>
+                                        <li data-category="door"><a href="#products">Door</a></li>
+                                        <li data-category="window"><a href="#products">Window</a></li>
+                                        <li data-category="garages"><a href="#products">Garages</a></li>
+                                        <li data-category="shower"><a href="#products">Shower</a></li>
+                                        <li data-category="canopy"><a href="#products">Canopy &amp; Railing</a></li>
                                     </ul>
                                 </div>
-                                <div class="mega-menu-col mega-menu-col-right">
+                                <div class="mega-col mega-col-2">
+                                    <div class="mega-sub-list" data-for="all">
+                                        <a href="#products">All Products</a>
+                                    </div>
+                                    <div class="mega-sub-list" data-for="door">
+                                        <a href="#products">Pivot Door</a>
+                                        <a href="#products">Sliding Door</a>
+                                        <a href="#products">Folding Door</a>
+                                        <a href="#products">Swing Door</a>
+                                        <a href="#products">French &amp; Oval Door</a>
+                                    </div>
+                                    <div class="mega-sub-list" data-for="window">
+                                        <a href="#products">Sliding Window</a>
+                                        <a href="#products">Casement Window</a>
+                                        <a href="#products">French Window</a>
+                                        <a href="#products">Fixed Window</a>
+                                    </div>
+                                    <div class="mega-sub-list" data-for="garages">
+                                        <a href="#products">Garage Door</a>
+                                        <a href="#products">Automatic Gate</a>
+                                    </div>
+                                    <div class="mega-sub-list" data-for="shower">
+                                        <a href="#products">Shower Enclosure</a>
+                                        <a href="#products">Shower Screen</a>
+                                        <a href="#products">Shower Door</a>
+                                    </div>
+                                    <div class="mega-sub-list" data-for="canopy">
+                                        <a href="#products">Canopy</a>
+                                        <a href="#products">Railing</a>
+                                        <a href="#products">Fence</a>
+                                    </div>
+                                </div>
+                                <div class="mega-col mega-col-3">
                                     <p class="mega-promo-title">Get Price Estimates</p>
                                     <a href="#contact" class="mega-promo-img">
                                         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&h=300&fit=crop" alt="Aluminium Interior">
