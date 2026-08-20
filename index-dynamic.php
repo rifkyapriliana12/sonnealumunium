@@ -38,7 +38,7 @@ while ($row = $settingsQuery->fetch()) {
     <title>Aluminium Door, Aluminium Window, Sliding Door, Folding Door, French Window, Swing Door, Pintu Aluminium, Jendela Aluminium, Kusen Aluminium, Jakarta, Sonne, Sonne Aluminium |</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -190,6 +190,8 @@ while ($row = $settingsQuery->fetch()) {
                     </div>
                     <h3>Desain yang mewah dan inovatif</h3>
                     <p>Tidak ada permintaan customer yang terlalu menyulitkan untuk kami:</p>
+                    <p>Desain kami cocok untuk berbagai jenis rumah: indah untuk rumah modern, kokoh untuk rumah klasik, minimalis untuk rumah Scandinavian</p>
+                    <p>SONNE dapat mencocokan seluruh hal untuk kebutuhan Anda: gambar, kaca, warna (10+ pilihan), aksesoris, dsb.</p>
                     <a href="#" class="btn-outline">LIHAT SELENGKAPNYA</a>
                 </div>
 
@@ -199,6 +201,9 @@ while ($row = $settingsQuery->fetch()) {
                     </div>
                     <h3>Keawetan untuk dekade yang akan datang</h3>
                     <p>Aluminium kami adalah tipe penerbangan 6063 T5 dengan pelapisan warna terbaik & teknologi thermal-break.</p>
+                    <p>Kaca dan bahan sealant kami adalah tipe otomotif; kaca ganda untuk isolasi panas dan peredam suara terbaik.</p>
+                    <p>Aksesoris kami telah lulus ribuan uji buka/tutup.</p>
+                    <p>Kami berkomitmen pada garansi purna jual kami.</p>
                     <a href="#" class="btn-outline">LIHAT SELENGKAPNYA</a>
                 </div>
             </div>
@@ -334,34 +339,34 @@ while ($row = $settingsQuery->fetch()) {
 
             <div class="footer-columns">
                 <div class="footer-col">
-                    <h4>Produk</h4>
+                    <h4>Product</h4>
                     <ul>
-                        <li><a href="#">Pintu</a></li>
-                        <li><a href="#">Jendela</a></li>
-                        <li><a href="#">Bilik Kamar Mandi, Kanopi & Railing</a></li>
+                        <li><a href="#">Door</a></li>
+                        <li><a href="#">Window</a></li>
+                        <li><a href="#">Bathroom Cubicle, Canopy & Railing</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Tentang</h4>
+                    <h4>About</h4>
                     <ul>
-                        <li><a href="#">Background Perusahaan</a></li>
-                        <li><a href="#">Diferensiasi Produk</a></li>
+                        <li><a href="#">Company Background</a></li>
+                        <li><a href="#">Product Differentiation</a></li>
                         <li><a href="#">Customization</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Kantor Pusat</h4>
+                    <h4>Global Headquarter</h4>
                     <p>Punggol Field<br>Punggol, Singapore 828817</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Showroom & Cabang Indonesia</h4>
+                    <h4>Indonesia Branch & Showroom</h4>
                     <p><?php echo $settings['site_address'] ?? 'Jalan Raya Narogong Km7, Bekasi, Indonesia 17116'; ?></p>
                     <a href="#" class="btn-showroom">LOKASI SHOWROOM</a>
                 </div>
             </div>
 
             <div class="footer-copyright">
-                <p>&copy; <?php echo date('Y'); ?> Sonne Aluminium. All rights reserved. Developed by <a href="https://nectar.id" target="_blank">Nectar Website</a>.</p>
+                <p>&copy; 2023-<?php echo date('Y'); ?> Sonne Aluminium. All rights reserved. Developed by <a href="https://nectar.id" target="_blank">Nectar Website</a>.</p>
             </div>
         </div>
     </footer>

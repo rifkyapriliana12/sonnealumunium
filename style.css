@@ -10,8 +10,9 @@ html {
 }
 
 body {
-    font-family: 'Arial', Helvetica, Arial, Lucida, sans-serif;
-    line-height: 1.6;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    line-height: 1.7em;
     color: #666;
     overflow-x: hidden;
     font-size: 14px;
