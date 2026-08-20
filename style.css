@@ -303,7 +303,6 @@ img {
     transition: all 0.2s ease;
 }
 
-.mega-cat-list li a:hover,
 .mega-cat-list li.active a {
     color: #d59203 !important;
     background: rgba(213, 146, 3, 0.08);

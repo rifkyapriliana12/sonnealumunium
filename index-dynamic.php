@@ -39,7 +39,7 @@
                                     </ul>
                                 </div>
                                 <div class="mega-col mega-col-2">
-                                    <div class="mega-sub-list" data-for="all">
+                                    <div class="mega-sub-list active" data-for="all">
                                         <a href="#products">All Products</a>
                                     </div>
                                     <div class="mega-sub-list" data-for="door">
