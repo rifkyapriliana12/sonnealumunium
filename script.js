@@ -82,6 +82,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Mobile Mega Menu Toggle
+    const megaMenuParent = document.querySelector('.has-mega-menu');
+    if (megaMenuParent) {
+        megaMenuParent.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                megaMenuParent.classList.toggle('active');
+            }
+        });
+    }
+
     // Product Tabs
     const tabBtns = document.querySelectorAll('.tab-btn');
     
