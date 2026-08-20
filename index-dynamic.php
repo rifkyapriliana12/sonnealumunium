@@ -1,41 +1,10 @@
-<?php
-// Frontend PHP - Fetches data from database
-require_once 'admin/config.php';
-
-$pdo = getDB();
-
-// Get sliders
-$sliders = $pdo->query("SELECT * FROM sliders WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll();
-
-// Get products
-$products = $pdo->query("SELECT * FROM products WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll();
-
-// Get projects
-$projects = $pdo->query("SELECT * FROM projects WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll();
-
-// Get partners
-$partners = $pdo->query("SELECT * FROM partners WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll();
-
-// Get testimonials
-$testimonials = $pdo->query("SELECT * FROM testimonials WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll();
-
-// Get blog posts
-$blogPosts = $pdo->query("SELECT * FROM blog_posts WHERE is_active = 1 ORDER BY created_at DESC LIMIT 3")->fetchAll();
-
-// Get settings
-$settings = [];
-$settingsQuery = $pdo->query("SELECT * FROM settings");
-while ($row = $settingsQuery->fetch()) {
-    $settings[$row['setting_key']] = $row['setting_value'];
-}
-?>
 <!DOCTYPE html>
-<html lang="id-ID">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Aluminium Door, Aluminium Window, Sliding Door, Folding Door, French Window, Swing Door, Pintu Aluminium, Jendela Aluminium, Kusen Aluminium, Jakarta, Sonne, Sonne Aluminium |</title>
+    <title>Aluminium Doors, Aluminium Windows, Sliding Doors, Folding Doors, French Window, Swing Doors, Jakarta, Sonne |</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,7 +12,8 @@ while ($row = $settingsQuery->fetch()) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Sticky Header -->
+    <?php require_once 'admin/config.php'; $pdo = getDB(); $sliders = $pdo->query("SELECT * FROM sliders WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll(); $products = $pdo->query("SELECT * FROM products WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll(); $projects = $pdo->query("SELECT * FROM projects WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll(); $partners = $pdo->query("SELECT * FROM partners WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll(); $testimonials = $pdo->query("SELECT * FROM testimonials WHERE is_active = 1 ORDER BY sort_order ASC")->fetchAll(); $blogPosts = $pdo->query("SELECT * FROM blog_posts WHERE is_active = 1 ORDER BY created_at DESC LIMIT 3")->fetchAll(); $settings = []; $settingsQuery = $pdo->query("SELECT * FROM settings"); while ($row = $settingsQuery->fetch()) { $settings[$row['setting_key']] = $row['setting_value']; } ?>
+
     <header class="header" id="mainHeader">
         <div class="container">
             <div class="header-inner">
@@ -55,11 +25,11 @@ while ($row = $settingsQuery->fetch()) {
                 <nav class="main-nav" id="mainNav">
                     <ul>
                         <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#">Produk</a></li>
-                        <li><a href="#">Kontak</a></li>
-                        <li><a href="#">Portofolio</a></li>
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Portfolio</a></li>
                         <li><a href="#">Education</a></li>
-                        <li><a href="#">Tentang</a></li>
+                        <li><a href="#">About</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Showroom</a></li>
                     </ul>
@@ -69,28 +39,20 @@ while ($row = $settingsQuery->fetch()) {
                     <a href="#" class="btn-get-price-header">Get Price Estimates</a>
                 </div>
                 <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Slider -->
     <section class="hero-slider">
         <div class="slider-container">
             <?php foreach ($sliders as $index => $slider): ?>
-                <div class="slide <?php echo $index == 0 ? 'active' : ''; ?>" 
-                     style="background-image: linear-gradient(90deg,rgba(0,0,0,<?php echo $slider['overlay_opacity']; ?>) 5%,rgba(0,0,0,0.1) 35%), url('uploads/sliders/<?php echo $slider['image']; ?>')">
+                <div class="slide <?php echo $index == 0 ? 'active' : ''; ?>" style="background-image: linear-gradient(90deg,rgba(0,0,0,<?php echo $slider['overlay_opacity']; ?>) 5%,rgba(0,0,0,0.1) 35%), url('uploads/sliders/<?php echo $slider['image']; ?>')">
                     <div class="slide-content" <?php echo $index == 2 ? 'style="padding-right: 30%;"' : ''; ?>>
-                        <?php if ($slider['subtitle']): ?>
-                            <span class="slide-badge"><?php echo $slider['subtitle']; ?></span>
-                        <?php endif; ?>
+                        <?php if ($slider['subtitle']): ?><span class="slide-badge"><?php echo $slider['subtitle']; ?></span><?php endif; ?>
                         <h2 class="slide-title"><?php echo $slider['title']; ?></h2>
-                        <?php if ($slider['button_text']): ?>
-                            <a href="<?php echo $slider['button_url']; ?>" class="btn-slide"><?php echo $slider['button_text']; ?></a>
-                        <?php endif; ?>
+                        <?php if ($slider['button_text']): ?><a href="<?php echo $slider['button_url']; ?>" class="btn-slide"><?php echo $slider['button_text']; ?></a><?php endif; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -106,29 +68,13 @@ while ($row = $settingsQuery->fetch()) {
         </div>
     </section>
 
-    <!-- Product Tabs Section -->
-    <section class="product-tabs-section">
-        <div class="container">
-            <div class="tabs-nav">
-                <button class="tab-btn active" data-tab="all">All Product</button>
-                <button class="tab-btn" data-tab="door">Door</button>
-                <button class="tab-btn" data-tab="window">Window</button>
-                <button class="tab-btn" data-tab="garages">Garages</button>
-                <button class="tab-btn" data-tab="shower">Shower</button>
-                <button class="tab-btn" data-tab="canopy">Canopy & Railing</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Heatproof Section -->
     <section class="heatproof-section">
         <div class="container">
-            <h2>HEATPROOF AND SOUNDPROOF : DOORS AND WINDOW</h2>
-            <p>Kami menawarkan teknologi thermal-break yang terinspirasi dari Jerman dan double glass berongga untuk isolasi panas dan suara yang lebih baik dengan nilai yang terjangkau</p>
+            <h2>HEATPROOF AND SOUNDPROOF : DOORS AND WINDOWS</h2>
+            <p>We offer German-inspired <strong>thermal-break technology</strong> and <strong>hollow double-glass</strong> for superior heat &amp; sound insulation at reasonable values.</p>
         </div>
     </section>
 
-    <!-- Products Showcase -->
     <section class="products-showcase">
         <div class="container">
             <?php foreach ($products as $index => $product): ?>
@@ -147,80 +93,63 @@ while ($row = $settingsQuery->fetch()) {
         </div>
     </section>
 
-    <!-- Why Choose SONNE -->
     <section class="why-section">
         <div class="container">
-            <h2 class="section-title center">Kenapa memilih SONNE?</h2>
+            <h2 class="section-title center">WHY CHOSE SONNE?</h2>
             <div class="title-line center"></div>
-
             <div class="why-intro">
-                <p>Kami menghasilkan produk yang benar-benar Anda minta.</p>
-                <p class="subtitle">Didirikan untuk menyelesaikan masalah yang nyata dan personal</p>
-                <p>SONNE diciptakan oleh founder kami saat mengalami kesulitan dalam proses renovasi rumah dan dengan pengetahuan mereka selama 32 tahun dalam dunia aluminium, masalah tersebut adalah:</p>
+                <p>We deliver what you ask.</p>
             </div>
-
             <div class="why-problems">
-                <div class="problem">
-                    <i class="fas fa-times-circle"></i>
-                    <span>Harga yang tinggi tidak menjamin kualitas dan estetika</span>
-                </div>
-                <div class="problem">
-                    <i class="fas fa-times-circle"></i>
-                    <span>Produk yang dihasilkan dibawah yang ditunjukan di showroom</span>
-                </div>
-                <div class="problem">
-                    <i class="fas fa-times-circle"></i>
-                    <span>Kurangnya transparansi dan edukasi produk</span>
-                </div>
+                <div class="problem"><i class="fas fa-times-circle"></i><span>High prices do not guarantee quality and beauty.</span></div>
+                <div class="problem"><i class="fas fa-times-circle"></i><span>Products delivered are of less quality than those shown in the showroom.</span></div>
+                <div class="problem"><i class="fas fa-times-circle"></i><span>Lack of transparency and product education</span></div>
             </div>
-
+            <div class="why-subtitle">
+                <h3>Founded to solve real, personal problems.</h3>
+                <p>SONNE was created to solve our founders' problems during home renovation and following their 32 years of experience in aluminium:</p>
+            </div>
             <div class="why-features">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="https://sonnealuminium.com/wp-content/uploads/2023/09/certificate.png" alt="Certificate">
-                    </div>
-                    <h3>Perusahaan global dengan sertifikasi ISO9001 untuk jalur rantai pasoknya</h3>
-                    <p>Dengan kantor pusat di Singapura, SONNE memiliki Kerjasama dengan pabrik bersertifikat ISO9001 dengan ukuran >70,000 sqm.</p>
-                    <a href="#" class="btn-outline">LIHAT SELENGKAPNYA</a>
+                    <div class="feature-icon"><img src="https://sonnealuminium.com/wp-content/uploads/2023/09/certificate.png" alt="Certificate"></div>
+                    <h3>Global company with ISO9001 certified supply chain</h3>
+                    <ul>
+                        <li>Headquartered in Singapore, SONNE has an ISO9001 factory partner with &gt;70,000 sqm size.</li>
+                        <li>The products scored very high in all performance tests (water, air, thermal, wind, sound)</li>
+                        <li>Products are certified to enter the US, EU, AU, China, SA market including safety certificate.</li>
+                    </ul>
                 </div>
-
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="https://sonnealuminium.com/wp-content/uploads/2023/09/idea.png" alt="Idea">
-                    </div>
-                    <h3>Desain yang mewah dan inovatif</h3>
-                    <p>Tidak ada permintaan customer yang terlalu menyulitkan untuk kami:</p>
-                    <p>Desain kami cocok untuk berbagai jenis rumah: indah untuk rumah modern, kokoh untuk rumah klasik, minimalis untuk rumah Scandinavian</p>
-                    <p>SONNE dapat mencocokan seluruh hal untuk kebutuhan Anda: gambar, kaca, warna (10+ pilihan), aksesoris, dsb.</p>
-                    <a href="#" class="btn-outline">LIHAT SELENGKAPNYA</a>
+                    <div class="feature-icon"><img src="https://sonnealuminium.com/wp-content/uploads/2023/09/idea.png" alt="Idea"></div>
+                    <h3>Luxurious and innovative design</h3>
+                    <ul>
+                        <li>No customer ask is too troublesome for us:</li>
+                        <li>SONNE design has many options: sleek for modern design, strong for American classic, minimalist for Scandinavian taste</li>
+                        <li>SONNE personalizes everything from drawings, glass, colour (10+ choices), accessories, etc</li>
+                    </ul>
                 </div>
-
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="https://sonnealuminium.com/wp-content/uploads/2023/08/think.png" alt="Think">
-                    </div>
-                    <h3>Keawetan untuk dekade yang akan datang</h3>
-                    <p>Aluminium kami adalah tipe penerbangan 6063 T5 dengan pelapisan warna terbaik & teknologi thermal-break.</p>
-                    <p>Kaca dan bahan sealant kami adalah tipe otomotif; kaca ganda untuk isolasi panas dan peredam suara terbaik.</p>
-                    <p>Aksesoris kami telah lulus ribuan uji buka/tutup.</p>
-                    <p>Kami berkomitmen pada garansi purna jual kami.</p>
-                    <a href="#" class="btn-outline">LIHAT SELENGKAPNYA</a>
+                    <div class="feature-icon"><img src="https://sonnealuminium.com/wp-content/uploads/2023/08/think.png" alt="Think"></div>
+                    <h3>Durability for decades to come</h3>
+                    <ul>
+                        <li>Our aluminium is 6063 T5 aviation grade with top colour-coating &amp; thermal-break technology.</li>
+                        <li>Our glass &amp; sealant is automotive grade; double glass for best heat &amp; sound-proof</li>
+                        <li>Our accessories passed thousands of opening/closing tests</li>
+                        <li>We commit to our after-sales warranty</li>
+                    </ul>
                 </div>
             </div>
-
             <div class="why-buttons center">
-                <a href="#" class="btn-primary">Tentang Sonne</a>
-                <a href="#" class="btn-outline-dark">CEK PENAWARAN HARGA</a>
+                <a href="#" class="btn-primary">LEARN MORE ABOUT SONNE</a>
+                <a href="#" class="btn-outline-dark">GET PRICE ESTIMATES</a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="container">
-            <h2 class="section-title center">APA KATA PELANGGAN KAMI</h2>
+            <h2 class="section-title center">WHAT OUR CUSTOMERS SAY</h2>
             <div class="title-line center"></div>
-
             <div class="testimonials-slider">
                 <?php foreach ($testimonials as $index => $testimonial): ?>
                     <div class="testimonial <?php echo $index == 0 ? 'active' : ''; ?>">
@@ -240,35 +169,26 @@ while ($row = $settingsQuery->fetch()) {
         </div>
     </section>
 
-    <!-- Projects -->
     <section class="projects-section">
         <div class="container">
-            <h2 class="section-title center">PROYEK GLOBAL KAMI</h2>
+            <h2 class="section-title center">GLOBAL PROJECT CASES</h2>
             <div class="title-line center"></div>
-
             <div class="projects-carousel">
                 <?php foreach ($projects as $project): ?>
                     <div class="project-card">
                         <img src="uploads/projects/<?php echo $project['image']; ?>" alt="<?php echo $project['title']; ?>">
-                        <div class="project-overlay">
-                            <h3><?php echo $project['title']; ?></h3>
-                        </div>
+                        <div class="project-overlay"><h3><?php echo $project['title']; ?></h3></div>
                     </div>
                 <?php endforeach; ?>
             </div>
-
-            <div class="center">
-                <a href="#" class="btn-outline-dark">LIHAT PROYEK</a>
-            </div>
+            <div class="center"><a href="#" class="btn-outline-dark">EXPLORE ALL PROJECTS</a></div>
         </div>
     </section>
 
-    <!-- Partners -->
     <section class="partners-section">
         <div class="container">
-            <h2 class="section-title center">PARTNER GLOBAL KAMI</h2>
+            <h2 class="section-title center">MEET OUR GLOBAL PARTNERS</h2>
             <div class="title-line center"></div>
-
             <div class="partners-grid">
                 <?php foreach ($partners as $partner): ?>
                     <div class="partner-item">
@@ -281,22 +201,18 @@ while ($row = $settingsQuery->fetch()) {
         </div>
     </section>
 
-    <!-- Blog -->
     <section class="blog-section">
         <div class="container">
             <h2 class="section-title center">OUR LATEST BLOG</h2>
             <div class="title-line center"></div>
-
             <div class="blog-grid">
                 <?php foreach ($blogPosts as $post): ?>
                     <div class="blog-card">
-                        <div class="blog-image">
-                            <img src="uploads/blog/<?php echo $post['image']; ?>" alt="<?php echo $post['title']; ?>">
-                        </div>
+                        <div class="blog-image"><img src="uploads/blog/<?php echo $post['image']; ?>" alt="<?php echo $post['title']; ?>"></div>
                         <div class="blog-content">
                             <h3><?php echo $post['title']; ?></h3>
                             <p><?php echo $post['excerpt']; ?></p>
-                            <a href="blog-detail.php?slug=<?php echo $post['slug']; ?>" class="btn-outline">Baca Selengkapnya</a>
+                            <a href="blog-detail.php?slug=<?php echo $post['slug']; ?>" class="btn-outline">READ MORE</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -304,82 +220,56 @@ while ($row = $settingsQuery->fetch()) {
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>HUBUNGI KAMI DAN BAGIKAN GAMBAR RUMAHMU</h2>
+            <h2>CONTACT US AND SHARE YOUR DRAWING</h2>
             <div class="cta-buttons">
-                <a href="#" class="btn-primary">CEK PENAWARAN HARGA</a>
-                <a href="#" class="btn-primary">JADI BISNIS PARTNER KAMI</a>
-                <a href="#" class="btn-primary">LOKASI SHOWROOM</a>
+                <a href="#" class="btn-primary">GET PRICE ESTIMATES</a>
+                <a href="#" class="btn-primary">BE OUR BUSINESS PARTNER</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-social">
-                <?php if (!empty($settings['instagram_url'])): ?>
-                    <a href="<?php echo $settings['instagram_url']; ?>" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-                <?php endif; ?>
-                <?php if (!empty($settings['facebook_url'])): ?>
-                    <a href="<?php echo $settings['facebook_url']; ?>" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
-                <?php endif; ?>
-                <?php if (!empty($settings['tiktok_url'])): ?>
-                    <a href="<?php echo $settings['tiktok_url']; ?>" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i></a>
-                <?php endif; ?>
-                <?php if (!empty($settings['youtube_url'])): ?>
-                    <a href="<?php echo $settings['youtube_url']; ?>" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a>
-                <?php endif; ?>
-                <?php if (!empty($settings['linkedin_url'])): ?>
-                    <a href="<?php echo $settings['linkedin_url']; ?>" target="_blank" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-                <?php endif; ?>
+            <div class="footer-top">
+                <img src="https://sonnealuminium.com/wp-content/uploads/2025/07/LOGO-SONNE-2025-FINAL-GOLD-980x319.png" alt="Sonne Aluminium" class="footer-logo">
+                <a href="mailto:sonnealuminium.adm@gmail.com" class="footer-email">sonnealuminium.adm@gmail.com</a>
             </div>
-
+            <div class="footer-social">
+                <?php if (!empty($settings['instagram_url'])): ?><a href="<?php echo $settings['instagram_url']; ?>" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a><?php endif; ?>
+                <?php if (!empty($settings['facebook_url'])): ?><a href="<?php echo $settings['facebook_url']; ?>" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a><?php endif; ?>
+                <?php if (!empty($settings['tiktok_url'])): ?><a href="<?php echo $settings['tiktok_url']; ?>" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i></a><?php endif; ?>
+                <?php if (!empty($settings['youtube_url'])): ?><a href="<?php echo $settings['youtube_url']; ?>" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a><?php endif; ?>
+                <?php if (!empty($settings['linkedin_url'])): ?><a href="<?php echo $settings['linkedin_url']; ?>" target="_blank" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a><?php endif; ?>
+            </div>
             <div class="footer-columns">
                 <div class="footer-col">
                     <h4>Product</h4>
-                    <ul>
-                        <li><a href="#">Door</a></li>
-                        <li><a href="#">Window</a></li>
-                        <li><a href="#">Bathroom Cubicle, Canopy & Railing</a></li>
-                    </ul>
+                    <ul><li><a href="#">Door</a></li><li><a href="#">Window</a></li><li><a href="#">Bathroom Cubicle, Canopy &amp; Railing</a></li></ul>
                 </div>
                 <div class="footer-col">
                     <h4>About</h4>
-                    <ul>
-                        <li><a href="#">Company Background</a></li>
-                        <li><a href="#">Product Differentiation</a></li>
-                        <li><a href="#">Customization</a></li>
-                    </ul>
+                    <ul><li><a href="#">Company Background</a></li><li><a href="#">Product Differentiation</a></li><li><a href="#">Customization</a></li></ul>
                 </div>
                 <div class="footer-col">
                     <h4>Global Headquarter</h4>
                     <p>Punggol Field<br>Punggol, Singapore 828817</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Indonesia Branch & Showroom</h4>
+                    <h4>Indonesia Branch &amp; Showroom</h4>
                     <p><?php echo $settings['site_address'] ?? 'Jalan Raya Narogong Km7, Bekasi, Indonesia 17116'; ?></p>
-                    <a href="#" class="btn-showroom">LOKASI SHOWROOM</a>
+                    <a href="#" class="btn-showroom">SHOWROOM LOCATION</a>
                 </div>
             </div>
-
             <div class="footer-copyright">
                 <p>&copy; 2023-<?php echo date('Y'); ?> Sonne Aluminium. All rights reserved. Developed by <a href="https://nectar.id" target="_blank">Nectar Website</a>.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/<?php echo $settings['site_whatsapp'] ?? '6281282006363'; ?>" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Back to Top -->
-    <a href="#" class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <a href="https://wa.me/<?php echo $settings['site_whatsapp'] ?? '6281282006363'; ?>" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
     <script src="script.js"></script>
 </body>
