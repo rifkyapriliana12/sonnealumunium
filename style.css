@@ -511,26 +511,37 @@ img {
 }
 
 .why-intro {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .why-intro p {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text);
-    margin-bottom: 15px;
     line-height: 1.8;
 }
 
-.why-intro .subtitle {
+.why-subtitle {
+    margin-bottom: 40px;
+}
+
+.why-subtitle h3 {
+    font-size: 20px;
     font-weight: 600;
     color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.why-subtitle p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.8;
 }
 
 .why-problems {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .problem {
@@ -580,6 +591,18 @@ img {
     color: var(--dark);
     margin-bottom: 15px;
     line-height: 1.5;
+}
+
+.feature-card ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.feature-card ul li {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.6;
 }
 
 .feature-card p {
@@ -875,6 +898,28 @@ img {
     background-color: var(--dark);
     color: var(--white);
     padding: 50px 0 0;
+}
+
+.footer-top {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.footer-email {
+    display: block;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+.footer-email:hover {
+    color: var(--gold);
 }
 
 .footer-social {
