@@ -9,101 +9,278 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Breadcrumbs */
+        .breadcrumb-bar {
+            background: #f5f5f5;
+            padding: 12px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .breadcrumb-bar .container {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            font-size: 12px;
+            color: #999;
+        }
+        .breadcrumb-bar a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .breadcrumb-bar a:hover {
+            color: #d59203;
+        }
+        .breadcrumb-bar .sep {
+            margin: 0 8px;
+            color: #ccc;
+        }
+        .breadcrumb-bar .current {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Secondary Nav */
+        .secondary-nav {
+            background: #f0f0f0;
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+        }
+        .secondary-nav .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+        }
+        .sec-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .sec-nav-item i {
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+        .sec-nav-item:hover {
+            color: #d59203;
+        }
+        .sec-nav-item.active {
+            color: #d59203;
+            border-bottom-color: #d59203;
+            font-weight: 600;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 50px 0;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .product-card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .product-card-body {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .product-card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+            margin: 0;
+        }
+        .badge-new {
+            display: inline-block;
+            background: #d59203;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* WhatsApp FAB */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 9999;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .secondary-nav .container {
+                overflow-x: auto;
+                justify-content: flex-start;
+                gap: 0;
+            }
+            .sec-nav-item {
+                padding: 14px 15px;
+                font-size: 12px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header" id="mainHeader">
         <div class="container">
             <div class="header-inner">
                 <div class="logo"><a href="../../index.html"><img src="https://sonnealuminium.com/wp-content/uploads/2025/07/LOGO-SONNE-2025-FINAL-GOLD-980x319.png" alt="Sonne Aluminium"></a></div>
-                <nav class="main-nav" id="mainNav"><ul><li><a href="../../index.html#home">Home</a></li><li><a href="../../index.html#products">Product</a></li><li><a href="../../index.html#contact">Contact</a></li><li><a href="../../index.html#projects">Portfolio</a></li><li><a href="../../index.html#about">About</a></li><li><a href="../../index.html#blog">Blog</a></li></ul></nav>
+                <nav class="main-nav" id="mainNav"><ul><li><a href="../../index.html#home">Home</a></li><li><a href="../all-product.html">Product</a></li><li><a href="../../index.html#contact">Contact</a></li><li><a href="../../index.html#projects">Portfolio</a></li><li><a href="../../index.html#about">About</a></li><li><a href="../../index.html#blog">Blog</a></li></ul></nav>
                 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             </div>
         </div>
     </header>
 
-    <section style="padding: 100px 0 40px; background: #fafafa;">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-bar">
         <div class="container">
-            <nav style="font-size: 13px; margin-bottom: 30px;">
-                <a href="../../index.html" style="color: var(--gold);">Home</a>
-                <span style="color: #999; margin: 0 8px;">&raquo;</span>
-                <a href="../canopy-railing.html" style="color: var(--gold);">Canopy & Railing</a>
-                <span style="color: #999; margin: 0 8px;">&raquo;</span>
-                <span id="dynamic-breadcrumb" style="color: #666;">Fence</span>
-            </nav>
+            <a href="../../index.html">Home</a>
+            <span class="sep">&raquo;</span>
+            <a href="../all-product.html">Product</a>
+            <span class="sep">&raquo;</span>
+            <a href="../canopy-railing.html">Canopy &amp; Railing</a>
+            <span class="sep">&raquo;</span>
+            <span class="current" id="dynamic-breadcrumb">Fence</span>
+        </div>
+    </div>
 
-            <div style="display: flex; gap: 50px; align-items: flex-start; flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 300px;">
-                    <h1 id="dynamic-product-title" style="font-family: 'Josefin Sans', sans-serif; font-size: 32px; color: #333; margin-bottom: 10px; font-weight: 600;">Fence</h1>
-                    <p id="dynamic-product-subtitle" style="font-size: 14px; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 20px;">Premium Aluminium Fence</p>
-                    <p id="dynamic-product-desc" style="font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 30px;">Durable aluminium fences that define property boundaries with style. Resistant to rust, termites, and harsh weather, these fences offer a long-lasting, low-maintenance alternative to wood or steel while boosting your property's curb appeal.</p>
+    <!-- Secondary Navigation -->
+    <nav class="secondary-nav">
+        <div class="container">
+            <a href="../door.html" class="sec-nav-item">
+                <i class="fas fa-door-open"></i> Door
+            </a>
+            <a href="../window.html" class="sec-nav-item">
+                <i class="fas fa-window-maximize"></i> Window
+            </a>
+            <a href="../garages.html" class="sec-nav-item">
+                <i class="fas fa-warehouse"></i> Garages
+            </a>
+            <a href="../shower.html" class="sec-nav-item">
+                <i class="fas fa-shower"></i> Shower
+            </a>
+            <a href="../canopy-railing.html" class="sec-nav-item active">
+                <i class="fas fa-fence"></i> Canopy &amp; Railing
+            </a>
+        </div>
+    </nav>
 
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="font-family: 'Josefin Sans', sans-serif; font-size: 18px; color: #333; margin-bottom: 15px; font-weight: 600;">Specifications</h3>
-                        <div id="dynamic-product-specs" style="display: flex; flex-direction: column; gap: 10px;">
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-                                <span style="color: #999; font-size: 14px;">Material</span>
-                                <span style="color: #333; font-size: 14px; font-weight: 500;">Aluminium 6063-T5</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-                                <span style="color: #999; font-size: 14px;">Thickness</span>
-                                <span style="color: #333; font-size: 14px; font-weight: 500;">1.2mm - 2.0mm</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-                                <span style="color: #999; font-size: 14px;">Height</span>
-                                <span style="color: #333; font-size: 14px; font-weight: 500;">1200mm - 2400mm</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-                                <span style="color: #999; font-size: 14px;">Finish</span>
-                                <span style="color: #333; font-size: 14px; font-weight: 500;">Powder Coating / Anodize</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-                                <span style="color: #999; font-size: 14px;">Style</span>
-                                <span style="color: #333; font-size: 14px; font-weight: 500;">Picket / Panel / Pool</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-                                <span style="color: #999; font-size: 14px;">Warranty</span>
-                                <span style="color: #333; font-size: 14px; font-weight: 500;">5 Years</span>
-                            </div>
-                        </div>
+    <!-- Product Content -->
+    <section style="background: #fafafa; min-height: 60vh;">
+        <div class="container">
+            <div class="product-grid" id="dynamic-product-grid">
+                <a href="canopy.html" class="product-card">
+                    <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?q=80&w=600&auto=format&fit=crop" alt="Canopy" class="product-card-img">
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Canopy</h3>
                     </div>
-
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a id="dynamic-cta-btn" href="https://wa.me/6281282006363" style="display: inline-block; background: var(--gold); color: #fff; padding: 14px 35px; font-size: 13px; text-transform: uppercase; font-weight: 600; border-radius: 4px; letter-spacing: 0.5px; transition: all 0.3s;">Get a Free Quote</a>
-                        <a href="tel:+6281282006363" style="display: inline-block; background: transparent; color: var(--gold); padding: 14px 35px; font-size: 13px; text-transform: uppercase; font-weight: 600; border: 2px solid var(--gold); border-radius: 4px; letter-spacing: 0.5px; transition: all 0.3s;">Call Now</a>
+                </a>
+                <a href="railing.html" class="product-card">
+                    <img src="https://images.unsplash.com/photo-1600566753051-f0b89df2dd90?q=80&w=600&auto=format&fit=crop" alt="Railing" class="product-card-img">
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Railing</h3>
                     </div>
-                </div>
-
-                <div style="flex: 1; min-width: 300px;">
-                    <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.1);">
-                        <img id="dynamic-product-image" src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800&auto=format&fit=crop" alt="Fence" style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/3;">
+                </a>
+                <a href="fence.html" class="product-card">
+                    <img src="https://images.unsplash.com/photo-1600573472591-ee6981cf81d6?q=80&w=600&auto=format&fit=crop" alt="Fence" class="product-card-img">
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Fence</h3>
+                        <span class="badge-new">New</span>
                     </div>
-                    <div id="dynamic-gallery-thumbs" style="display: flex; gap: 10px; margin-top: 15px;">
-                        <div style="width: 80px; height: 60px; border-radius: 4px; overflow: hidden; border: 2px solid var(--gold); cursor: pointer;">
-                            <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=200&auto=format&fit=crop" alt="Thumb 1" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div style="width: 80px; height: 60px; border-radius: 4px; overflow: hidden; border: 2px solid transparent; cursor: pointer;">
-                            <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=200&auto=format&fit=crop" alt="Thumb 2" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div style="width: 80px; height: 60px; border-radius: 4px; overflow: hidden; border: 2px solid transparent; cursor: pointer;">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=200&auto=format&fit=crop" alt="Thumb 3" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="contact" style="background: var(--gold); padding: 50px 0; text-align: center;">
-        <div class="container">
-            <h2 style="font-family: 'Josefin Sans', sans-serif; color: #fff; font-size: 24px; margin-bottom: 15px;">Get a Free Quote</h2>
-            <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Contact us for pricing and consultation</p>
-            <a href="https://wa.me/6281282006363" style="display: inline-block; background: #fff; color: var(--gold); padding: 12px 30px; font-weight: 600; border-radius: 4px; text-transform: uppercase; font-size: 13px;">WhatsApp Us</a>
-        </div>
-    </section>
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/6281282006363" class="whatsapp-fab" target="_blank" aria-label="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="../../script.js"></script>
     <script>
         // TODO: Fetch data dari API Admin Panel di sini
+        // Contoh implementasi saat backend sudah siap:
+        //
+        // async function loadProducts(category) {
+        //     try {
+        //         const response = await fetch(`/api/products?category=${category}`);
+        //         const products = await response.json();
+        //         const grid = document.getElementById('dynamic-product-grid');
+        //         grid.innerHTML = products.map(p => `
+        //             <a href="${p.slug}.html" class="product-card">
+        //                 <img src="${p.image}" alt="${p.title}" class="product-card-img">
+        //                 <div class="product-card-body">
+        //                     <h3 class="product-card-title">${p.title}</h3>
+        //                     ${p.isNew ? '<span class="badge-new">New</span>' : ''}
+        //                 </div>
+        //             </a>
+        //         `).join('');
+        //     } catch (error) {
+        //         console.error('Failed to load products:', error);
+        //     }
+        // }
+        //
+        // const category = window.location.pathname.split('/').pop().replace('.html', '');
+        // loadProducts(category);
     </script>
 </body>
 </html>
