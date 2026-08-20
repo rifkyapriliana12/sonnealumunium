@@ -219,10 +219,10 @@ while ($row = $settingsQuery->fetch()) {
             <div class="testimonials-slider">
                 <?php foreach ($testimonials as $index => $testimonial): ?>
                     <div class="testimonial <?php echo $index == 0 ? 'active' : ''; ?>">
-                        <p>"<?php echo $testimonial['content']; ?>"</p>
+                        <p>"<?php echo $testimonial['message']; ?>"</p>
                         <div class="testimonial-author">
-                            <strong><?php echo $testimonial['author_name']; ?></strong>
-                            <span><?php echo $testimonial['author_position']; ?></span>
+                            <strong><?php echo $testimonial['client_name']; ?></strong>
+                            <span><?php echo $testimonial['company']; ?></span>
                         </div>
                     </div>
                 <?php endforeach; ?>
