@@ -250,19 +250,19 @@ img {
 
 .mega-menu {
     position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 520px;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 680px;
     background: #ffffff;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.18);
     border-radius: 6px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1100;
-    padding: 28px 30px;
+    padding: 30px;
+    overflow: hidden;
 }
 
 .has-mega-menu:hover > .mega-menu,
@@ -275,8 +275,7 @@ img {
     content: '';
     position: absolute;
     top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 60px;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
@@ -286,11 +285,13 @@ img {
 
 .mega-menu-inner {
     display: flex;
-    gap: 30px;
+    flex-direction: row;
+    gap: 0;
 }
 
 .mega-menu-left {
-    flex: 1;
+    width: 260px;
+    min-width: 260px;
     border-right: 1px solid #e0e0e0;
     padding-right: 25px;
 }
@@ -305,14 +306,20 @@ img {
     border-bottom: 1px solid #e0e0e0;
 }
 
+.mega-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .mega-menu-list li {
-    margin-bottom: 2px;
+    margin: 0;
 }
 
 .mega-menu-list li a {
     font-size: 14px;
     color: #333333;
-    padding: 6px 8px;
+    padding: 7px 10px;
     display: block;
     transition: all 0.2s;
     border-radius: 3px;
@@ -321,13 +328,14 @@ img {
 .mega-menu-list li a:hover {
     color: #d59203;
     background: rgba(213, 146, 3, 0.08);
-    padding-left: 12px;
+    padding-left: 14px;
 }
 
 .mega-menu-right {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding-left: 25px;
 }
 
 .mega-promo-title {
@@ -347,7 +355,7 @@ img {
 
 .mega-promo-img img {
     width: 100%;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
     transition: transform 0.3s;
     display: block;
@@ -1347,6 +1355,7 @@ img {
         padding: 15px;
         border: none;
         border-radius: 0;
+        overflow: visible;
     }
 
     .mega-menu::before {
@@ -1355,14 +1364,20 @@ img {
 
     .mega-menu-inner {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
 
     .mega-menu-left {
+        width: 100%;
+        min-width: 100%;
         border-right: none;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #e0e0e0;
         padding-right: 0;
         padding-bottom: 15px;
+    }
+
+    .mega-menu-right {
+        padding-left: 0;
     }
 
     .has-mega-menu.active .mega-menu {
