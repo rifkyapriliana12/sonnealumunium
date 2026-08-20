@@ -144,8 +144,8 @@ try {
     // Insert Default Settings
     $settings = [
         ['site_name', 'Sonne Aluminium', 'text'],
-        ['site_email', 'info@sonnealuminium.com', 'text'],
-        ['site_phone', '+62 21 2252 5999', 'text'],
+        ['site_email', 'sonnealuminium.adm@gmail.com', 'text'],
+        ['site_phone', '+62 21 2945 5306', 'text'],
         ['site_whatsapp', '6281282006363', 'text'],
         ['site_address', 'Jalan Raya Narogong Km7, Bekasi, Indonesia 17116', 'textarea'],
         ['instagram_url', 'https://www.instagram.com/sonnealuminium/', 'text'],
@@ -162,24 +162,24 @@ try {
 
     // Insert Sample Data
     // Sample Sliders
-    $pdo->exec("INSERT INTO sliders (title, subtitle, button_text, button_url, image, sort_order) VALUES
-        ('HEATPROOF AND SOUNDPROOF : DOORS AND WINDOW', 'Kami menawarkan teknologi thermal-break yang terinspirasi dari Jerman', 'LIHAT PRODUCT', '/produk/', 'slider-1.jpg', 1),
-        ('EXQUISITES', 'Sliding Door, Folding Door, Swing Door', 'EXPLORE THE COLLECTION', '/produk/pintu/', 'slider-2.jpg', 2),
-        ('PERFECT MATCH', 'Sidehung Window, Tophung Window, Sliding Window', 'EXPLORE THE COLLECTION', '/produk/jendela/', 'slider-3.jpg', 3)
+    $pdo->exec("INSERT INTO sliders (title, subtitle, button_text, button_url, image, overlay_opacity, sort_order) VALUES
+        ('Thermal-break and soundproof aluminium doors & windows', '', 'SEE PRODUCT', '/en/product/', 'slider-1.jpg', 0.40, 1),
+        ('Minimalist aluminium door & windows (slim frame >=10mm)', '', 'MORE ABOUT US', '/en/about/', 'slider-2.jpg', 0.40, 2),
+        ('32 years in aluminium with ISO9001 door & window production', '', 'SEE MORE', '/en/blog/', 'slider-3.jpg', 0.40, 3)
     ");
 
     // Sample Products
     $pdo->exec("INSERT INTO products (category, label, title, description, button_text, button_url, image, sort_order) VALUES
-        ('door', 'EXQUISITES', 'Sliding Door, Folding Door, Swing Door', 'Sliding Door dan Folding Door yang dirancang dengan stainless steel rel yang anti karat dan smooth', 'EXPLORE THE COLLECTION', '/produk/pintu/', 'product-door.jpg', 1),
-        ('window', 'PERFECT MATCH', 'Sidehung Window, Tophung Window, Sliding Window', 'Dengan desain yang elegan dan fungsional, sudut adu manis 45 derajat', 'EXPLORE THE COLLECTION', '/produk/jendela/', 'product-window.jpg', 2),
-        ('other', 'FRESH', 'Gerage, Bathroom Cubicle, Canopy & Railing', 'Kita mengenalkan produk inovatif dengan cepat untuk beradaptasi dengan pasar', 'EXPLORE THE COLLECTION', '/produk/lainnya/', 'product-other.jpg', 3)
+        ('door', 'EXQUISITE', 'Sliding Door, Folding Door, Swing Door', 'Durable stainless steel railing. Premium thickness 2.0mm and above, strong hinges.', 'EXPLORE THE COLLECTION', '/en/product/door/', 'product-door.jpg', 1),
+        ('window', 'PERFECT MATCH', 'Sidehung Window, Tophung Window, Sliding Window, and Folding Window', 'Beautiful 45 Degree corner. Anodize stainless steel handle. Thermal break and Soundproof.', 'EXPLORE THE COLLECTION', '/en/product/window/', 'product-window.jpg', 2),
+        ('other', 'FRESH', 'Garage, Bathroom Cubicle, Canopy & Railing', 'We launch innovative products fast to adapt to the market like pivot door, electric window, sunroom and shower series.', 'EXPLORE THE COLLECTION', '/en/product/unique-door-window/', 'product-other.jpg', 3)
     ");
 
     // Sample Testimonials
     $pdo->exec("INSERT INTO testimonials (client_name, company, message, rating, sort_order) VALUES
-        ('Ms. M', 'Perusahaan FMCG', 'SONNE service is very pleasant. Product education is detailed, information is transparent, and their price is competitive for above-average product specifications.', 5, 1),
-        ('Mrs. S', 'Startup Dekakorn', 'Saya sangat mementingkan estetika produk dan tim SONNE sangat senang dengan hal tersebut. Mereka menunjukan pada saya berbagai opsi warna.', 5, 2),
-        ('Mr. H', 'Perusahaan Import', 'Saya sangat senang dengan tim operasional SONNE. Mereka membantu berdiskusi kesulitan-kesulitan konstruksi sipil.', 5, 3)
+        ('Ms. M', 'board member of FMCG company', 'SONNE service is very pleasant. Product education is detailed, information is transparent, and their price is competitive for above-average product specifications. Their information and product knowledge are the best in the market and I feel I can trust them, I am not disappointed.', 5, 1),
+        ('Mrs. S', 'director of a decacorn start-up', 'I am very particular about beautiful products and the SONNE team is passionate about it too. They show me various choices of color coating and discuss what suits my style best. No detail is too small for them. Very personalised service and they deliver what they say 100%.', 5, 2),
+        ('Mr. H', 'CEO of an import business', 'I am happy with the SONNE operation team. They helped brainstorm the challenges on civil construction. They are willing to make necessary drawing adjustment and they do their best during installation. Delivery is on-time too.', 5, 3)
     ");
 
     // Create uploads directory
